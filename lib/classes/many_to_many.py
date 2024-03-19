@@ -60,14 +60,9 @@ class Author:
 
     def articles(self):
         article_list = []
-        for article_obj in Article.all: #article_obj is an object, and Article.all has many objects in it
-            # the for loop is checking for each object and passes each of them in article_obj
-            # Article.all is referring to the list of all the object articles being stored in the (Article) class, in the list (all)
-            if article_obj.author is self: # this line is accessing the value of the key author (.author)
-                #it checks if the value of author matches this author which is self
-                #(.author) key is referred to the author instance attribute that's initialized in the class of Article's constructor i.e init method
-                article_list.append(article_obj) # this line adds whichever author that matches this author (self) to the list article_list
-                #That's how this method keeps track of articles written by this author
+        for article_obj in Article.all: 
+            if article_obj.author is self: 
+                article_list.append(article_obj)
         return article_list
 
     def magazines(self):
@@ -82,7 +77,7 @@ class Author:
             article = Article(self, magazine, title)
             return article
         else:
-            print("invaalid magazine")
+            print("invalid magazine")
 
 
     def topic_areas(self):
